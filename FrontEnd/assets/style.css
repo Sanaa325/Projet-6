@@ -1,0 +1,639 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/** end reset css**/
+body {
+	max-width: 1140px;
+	margin: auto;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0
+}
+
+section {
+	margin: 50px 0
+}
+
+h1 {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+h1>span {
+	font-family: 'Work Sans';
+	font-size: 10px;
+	letter-spacing: 0.1em;
+	;
+}
+
+h2 {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+
+.modal-title {
+	font-family: "Work Sans";
+	font-weight: 400;
+	font-size: 26px;
+	color: #000;
+}
+
+.js-modal {
+	font-family: "Work Sans";
+	font-weight: 400;
+	font-size: 14px;
+	color: #000;
+}
+
+.js-modal:hover {
+	color: #B1663C;
+}
+
+.js-modal i {
+	margin-right: 8px;
+}
+
+#banner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	background-color: #000;
+	margin: 0 auto;
+}
+
+#banner p {
+	margin: auto 10px;
+	color: #FFF;
+	margin-right: 0;
+}
+
+#banner p i {
+	margin-right: 8px;
+}
+
+#banner button {
+	margin: auto 10px;
+	padding: 11px 23px;
+	background-color: #FFF;
+	color: #000;
+	border-radius: 60px;
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+
+nav li a {
+	color: #000;
+}
+
+nav li a:hover {
+	color: #B1663C;
+}
+
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li:hover {
+	color: #B1663C;
+}
+
+#introduction {
+	display: flex;
+	align-items: center;
+}
+
+#introduction figure {
+	flex: 1
+}
+
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+
+.h2-edit {
+	position: relative;
+}
+
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#click-modal1 {
+	position: absolute;
+	left: 60%;
+	top: 10px;
+}
+
+.modal {
+	position: fixed;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	text-align: center;
+}
+
+.modal-wrapper {
+	width: 600px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh - 20px);
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.modal-close {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	border: none;
+	cursor: pointer;
+}
+
+.modal-previous {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	border: none;
+	cursor: pointer;
+}
+
+.titlemodal {
+	margin: 60px auto 46px;
+	text-align: center;
+	font-family: "Work Sans";
+	font-weight: 400;
+	font-size: 26px;
+	color: #000;
+}
+
+.modal-gallery {
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 6px;
+	grid-row-gap: 10px;
+}
+
+.modal-gallery figure {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	width: 77px;
+}
+
+.modal-gallery img {
+	width: 77px;
+	/* height: 104px; */
+	/* width: 100%; */
+	object-fit: cover;
+}
+
+#container-btn {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-gallery i {
+	padding: 4px;
+	background: #000;
+	color: #FFF;
+	border-radius: 2px;
+}
+
+
+.edit-item {
+	margin: 0;
+	font-family: "Work Sans";
+	font-weight: 400;
+	font-size: 12px;
+	color: #000;
+}
+
+.line {
+	margin: 23px auto 10px;
+	background: #B3B3B3;
+	height: 1px;
+	width: 80%;
+	display: block;
+}
+
+#add-validated {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	background-color: #1D6154;
+	border: none;
+	padding: 10px 50px;
+	margin: 2em auto 30px;
+	width: auto;
+	text-align: center;
+	border-radius: 60px;
+}
+
+#delete-gallery {
+	color: #D65353;
+	font-family: "Syne";
+	font-weight: 400;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+
+.filter-container {
+	display: flex;
+	justify-content: space-around;
+	width: 55%;
+	text-align: center;
+	margin: 50px auto;
+}
+
+.btn-filter {
+	font-family: 'Syne';
+	font-size: 16px;
+	font-weight: 700;
+	color: #1D6154;
+	padding: 9px 20px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	background: whitesmoke;
+}
+
+.btn-filter:hover {
+	transition: 0.3 ease-in-out;
+	color: whitesmoke;
+	background: #1D6154;
+}
+
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+
+}
+
+#contact {
+	width: 50%;
+	margin: auto;
+}
+
+#contact>*,
+#login>* {
+	text-align: center;
+
+}
+
+#contact h2 {
+	margin-bottom: 20px;
+}
+
+#contact form,
+#login form {
+	text-align: left;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input,
+#login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label,
+#login label {
+	margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login a {
+	text-align: center;
+	color: black;
+	font-family: "Work Sans";
+}
+
+#login {
+	height: 90vh;
+	width: 325px;
+	margin: 100px auto;
+}
+
+input[type="submit"] {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin: 2em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
+.img-area {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #E8F1F6;
+	overflow: hidden;
+	width: 100%;
+	height: 189px;
+	margin: auto;
+}
+
+.img-area i {
+	height: 50%;
+	font-size: 4em;
+	color: #CBD6DC;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.img-area::before {
+	content: attr(data-img);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+	font-weight: 500;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+	opacity: 0;
+	z-index: 200;
+}
+
+.img-area.active:hover::before {
+	opacity: 1;
+}
+
+.after {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.img-area img {
+	height: 163px;
+	width: 129px;
+}
+
+.select-image {
+	border-radius: 50px;
+	font-family: "Work Sans";
+	font-weight: 500;
+	font-size: 14px;
+	background: #CBD6DC;
+	color: #306685;
+	padding: 10px 33px;
+	border: #CBD6DC;
+}
+
+.add-pict {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	margin: auto;
+}
+
+.img-area p {
+	margin: 7px 0 20px 0;
+	font-family: "Work Sans";
+	font-weight: 400;
+	font-size: 10px;
+}
+
+label {
+	font-family: "Work Sans";
+	font-weight: 500;
+	font-size: 14px;
+	margin: 15px;
+}
+
+#add-picture-btn {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	background-color: #1D6154;
+	border: none;
+	padding: 10px 50px;
+	margin: 2em auto 30px;
+	width: 50%;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer
+}
+
+.category,
+#add-title {
+	height: 40px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+}
