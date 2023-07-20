@@ -41,6 +41,11 @@ const openModal = function (e) {
     displayWorksModal()
   }
   else {
+    
+    document.querySelector('.select-image').addEventListener('click', function() {
+      document.getElementById('file').click();
+    });
+
     document.getElementById("add-picture-btn").addEventListener('click', function (e) {
       e.preventDefault()
       const btnTitle = document.querySelector("#add-title");
@@ -126,8 +131,13 @@ function displayWorksModal() {
     const element = document.createElement('figure')
     element.innerHTML = '<img src="' + work.imageUrl + '" alt="' + work.title + '" ><figcaption>Editer</figcaption>'
 
+    const divContainer = document.createElement('div');
+    divContainer.style.position = 'fixed';
+    divContainer.style.justifyContent = 'right';
+    divContainer.style.margin = '-100px 0 0 0';
+    divContainer.style.width = 'inherit';
     const trash = document.createElement("i")
-    trash.innerHTML = '<i class="fa-solid fa-trash"></i>'
+    trash.className = 'fa-solid fa-trash';
     element.appendChild(trash);
     trash.addEventListener("click", function (e) {
       e.preventDefault()
@@ -135,15 +145,16 @@ function displayWorksModal() {
     })
 
     const moveBtn = document.createElement("i")
-    moveBtn.innerHTML = '<i class="fa-solid fa-up-down-left-right"</i>'
-    element.appendChild(moveBtn);
+    moveBtn.className = 'fa-solid fa-up-down-left-right';
+    divContainer.appendChild(trash);
+    divContainer.appendChild(moveBtn);
+    element.appendChild(divContainer);
     div.appendChild(element);
-
 
     document.getElementById('content').appendChild(div);
 
   });
-
+  
   document.getElementById("delete-gallery").addEventListener('click', function (e) {
     e.preventDefault()
     deleteAllWorks(work.id)

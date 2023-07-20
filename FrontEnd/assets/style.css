@@ -364,7 +364,7 @@ li:hover {
 
 .modal-gallery img {
 	width: 77px;
-	/* height: 104px; */
+	height: 100px;
 	/* width: 100%; */
 	object-fit: cover;
 }
@@ -593,6 +593,10 @@ footer nav ul {
 	color: #306685;
 	padding: 10px 33px;
 	border: #CBD6DC;
+}
+
+#file{
+	opacity: 0;
 }
 
 .add-pict {
