@@ -297,6 +297,9 @@ li:hover {
 	left: 60%;
 	top: 10px;
 }
+#modifier{
+	margin-left: 55px;
+}
 
 .modal {
 	position: fixed;
@@ -312,6 +315,10 @@ li:hover {
 	text-align: center;
 }
 
+#modal-content {
+	position: relative;
+}
+
 .modal-wrapper {
 	width: 600px;
 	max-width: calc(100vw - 20px);
@@ -324,17 +331,17 @@ li:hover {
 .modal-close {
 	position: absolute;
 	right: 30px;
-	top: 30px;
 	border: none;
 	cursor: pointer;
+	background-color: #FFF;
 }
 
 .modal-previous {
 	position: absolute;
-	top: 30px;
 	left: 30px;
 	border: none;
 	cursor: pointer;
+	background-color: #FFF;
 }
 
 .titlemodal {
@@ -569,10 +576,6 @@ footer nav ul {
 	z-index: 200;
 }
 
-.img-area.active:hover::before {
-	opacity: 1;
-}
-
 .after {
 	display: flex;
 	align-items: center;
@@ -595,7 +598,7 @@ footer nav ul {
 	border: #CBD6DC;
 }
 
-#file{
+#file {
 	opacity: 0;
 }
 

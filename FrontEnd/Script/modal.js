@@ -41,22 +41,44 @@ const openModal = function (e) {
     displayWorksModal()
   }
   else {
-    
-    document.querySelector('.select-image').addEventListener('click', function() {
+
+    document.querySelector('.select-image').addEventListener('click', function () {
       document.getElementById('file').click();
     });
 
     document.getElementById("add-picture-btn").addEventListener('click', function (e) {
-      e.preventDefault()
+      e.preventDefault();
+
+      const fileInput = document.getElementById("file");
       const btnTitle = document.querySelector("#add-title");
       const categoryOfWork = document.querySelector("#add-category");
+
+      // Vérifier si une image a été sélectionnée
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert("Veuillez sélectionner une image !");
+        return;
+      }
+
+      // Vérifier si champ titre est vide
+      if (btnTitle.value.trim() === "") {
+        alert("Erreur: Le titre doit être renseigné.");
+        return;
+      }
+
+      // Vérifier si champ catégorie est vide
+      if (categoryOfWork.value.trim() === "") {
+        alert("Erreur: La catégorie doit être renseignée.");
+        return;
+      }
+
       formData.append("title", btnTitle.value);
       formData.append("category", categoryOfWork.value);
+
       fetch(worksUrl, {
-        method: 'POST', // Méthode HTTP (GET, POST, PUT, DELETE, etc.)
+        method: 'POST',
         headers: {
-          'Authorization': `Bearer ${sessionStorage.getItem("token")}`, // Ajoutez le token d'authentification dans l'en-tête
-          'Accept': 'application/json' // Définissez le type de contenu de la requête
+          'Authorization': `Bearer ${sessionStorage.getItem("token")}`,
+          'Accept': 'application/json'
         },
         body: formData
       })
@@ -68,16 +90,61 @@ const openModal = function (e) {
             closeModal(e)
           })
         })
-    })
+        .catch(error => {
+          alert("Une erreur est survenue lors de l'ajout de l'image : " + error.message);
+        });
+    });
 
     document.getElementById("file").addEventListener('change', function (e) {
-      e.preventDefault()
+      e.preventDefault();
       const file = e.target.files[0];
       formData = new FormData();
+    
+    
+      // Vérifier la taille de l'image (maximum de 4 Mo)
+      const maxSize = 4 * 1024 * 1024; // 4 Mo en octets
+      if (file.size > maxSize) {
+        alert("Erreur: la taille de l'image ne doit pas dépasser 4 Mo.");
+        return;
+      }
+    
+      // Vérifier si le fichier est au format PNG, JPEG ou PJPEG
+      const validImageFormats = ["image/png", "image/jpeg", "image/pjpeg"];
+      if (!validImageFormats.includes(file.type)) {
+        alert("Erreur: format de l'image non valide.");
+        return;
+      }
+    
       formData.append("image", file);
-    })
+    
+      const imagePreview = document.getElementById('image-preview');
+      const uploadBtnContainer = document.getElementById('upload-btn-container');
+    
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        imagePreview.src = event.target.result;
+        // Rendre la miniature visible
+        imagePreview.style.display = "block";
+    
+        // Masquer l'icône et le bouton "Ajouter Image"
+        uploadBtnContainer.style.display = "none";
+      };
+    
+      reader.onerror = function () {
+        // Afficher l'icône et le bouton "Ajouter Image" en cas d'erreur
+        imagePreview.style.display = "none";
+        uploadBtnContainer.style.display = "block";
+    
+        alert("Erreur lors du chargement de l'image !");
+      };
+    
+      reader.readAsDataURL(file);
+    });
+    
+    
   }
 }
+
 
 function deleteWork(workToDeletedId) {
   if (confirm("Souhaitez-vous vraiment supprimer ce projet ?") == true) {
@@ -102,6 +169,7 @@ function deleteAllWorks() {
 
 }
 
+// Fermer modal
 const closeModal = function (e) {
   if (modal === null) return
   e.preventDefault()
@@ -122,7 +190,7 @@ document.querySelectorAll('.js-modal').forEach(a => {
   a.addEventListener('click', openModal)
 })
 
-
+// Afficher les projets dans la modal
 function displayWorksModal() {
   document.getElementById("content").innerHTML = ""
 
@@ -154,7 +222,7 @@ function displayWorksModal() {
     document.getElementById('content').appendChild(div);
 
   });
-  
+
   document.getElementById("delete-gallery").addEventListener('click', function (e) {
     e.preventDefault()
     deleteAllWorks(work.id)
